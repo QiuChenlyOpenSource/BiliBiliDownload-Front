@@ -69,39 +69,16 @@ onMounted(async () => {
     <div class="bottom-panel">
       <!-- 写一个列表 -->
       <div class="list">
-        <RouterLink class="l1" to="/home/find-music">
-          <img
-            src="https://infinityicon.infinitynewtab.com/user-share-icon/9622b98e90dd4f107d23481566095b34.png?imageMogr2/thumbnail/240x/blur/1x0/quality/100|imageslim"
-            alt=""
-          />
-          <span>设置</span>
+        <RouterLink class="l1" to="/home/user">
+          <i-fluent:folder-person-16-regular class="logo" />
+          <span>用户</span>
+        </RouterLink>
+        <RouterLink class="l1" to="/home/explore">
+          <i-fluent:box-search-16-regular class="logo" />
+          <span>浏览</span>
         </RouterLink>
         <RouterLink class="l1" to="/home/find-music">
-          <img
-            src="https://infinityicon.infinitynewtab.com/user-share-icon/9622b98e90dd4f107d23481566095b34.png?imageMogr2/thumbnail/240x/blur/1x0/quality/100|imageslim"
-            alt=""
-          />
-          <span>设置</span>
-        </RouterLink>
-        <RouterLink class="l1" to="/home/find-music">
-          <img
-            src="https://infinityicon.infinitynewtab.com/user-share-icon/9622b98e90dd4f107d23481566095b34.png?imageMogr2/thumbnail/240x/blur/1x0/quality/100|imageslim"
-            alt=""
-          />
-          <span>设置</span>
-        </RouterLink>
-        <RouterLink class="l1" to="/home/find-music">
-          <img
-            src="https://infinityicon.infinitynewtab.com/user-share-icon/9622b98e90dd4f107d23481566095b34.png?imageMogr2/thumbnail/240x/blur/1x0/quality/100|imageslim"
-            alt=""
-          />
-          <span>设置</span>
-        </RouterLink>
-        <RouterLink class="l1" to="/home/find-music">
-          <img
-            src="https://infinityicon.infinitynewtab.com/user-share-icon/9622b98e90dd4f107d23481566095b34.png?imageMogr2/thumbnail/240x/blur/1x0/quality/100|imageslim"
-            alt=""
-          />
+          <i-fluent:person-settings-20-regular class="logo" />
           <span>设置</span>
         </RouterLink>
       </div>
@@ -143,7 +120,7 @@ onMounted(async () => {
 }
 .bottom-panel {
   width: 100%;
-  height: 65px;
+  height: var(--bottom-function-bar-height);
   overflow: hidden;
   display: flex;
   flex-direction: row;
@@ -179,13 +156,14 @@ onMounted(async () => {
       align-items: center;
       justify-content: center;
 
-      img {
-        width: 25px;
-        height: 25px;
-        border-radius: 8px;
+      .logo {
+        width: 23px;
+        height: 23px;
+        margin-bottom: 2px;
       }
+
       span {
-        line-height: auto;
+        font-size: 12px;
       }
     }
   }
@@ -193,5 +171,6 @@ onMounted(async () => {
 
 .content-app {
   flex: 1;
+  overflow: hidden;
 }
 </style>

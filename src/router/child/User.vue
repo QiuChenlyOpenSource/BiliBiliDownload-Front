@@ -54,9 +54,8 @@ const activeUser = async (DedeUserID = "") => {
 </script>
 
 <template>
-  <SpaceBar />
   <div class="content">
-    <h1>User页面</h1>
+    <SpaceBar />
     <div class="user-area">
       <div class="user-item" v-for="item in userLst" :key="item.DedeUserID">
         <BiliUser
@@ -69,26 +68,33 @@ const activeUser = async (DedeUserID = "") => {
         <div class="active" @click="activeUser(item.DedeUserID)">使用</div>
       </div>
     </div>
+    <SpaceBar height="var(--bottom-function-bar-height)" />
   </div>
 </template>
 
 <style lang="scss" scoped>
 .content {
-  margin-top: 10px;
+  overflow: scroll;
+  // background-color: red;
+  flex: 1;
 
   .user-area {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     .user-item {
-      margin: 10px;
+      margin: 10px 10px 0 10px;
       border-radius: 5px;
       width: 100%;
       padding: 10px;
       box-sizing: border-box;
       border: 1px solid #ccc;
       overflow: hidden;
-      margin-top: 10px;
+
+      &:last-of-type {
+        margin-bottom: 10px;
+      }
+
       .active {
         margin-top: 10px;
         padding: 5px;

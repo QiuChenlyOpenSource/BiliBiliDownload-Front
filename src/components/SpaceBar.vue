@@ -1,12 +1,22 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// 外部传递的参数
+const props = defineProps<{
+  height?: string;
+}>();
+</script>
 
 <template>
-  <div class="space-bar"></div>
+  <div
+    :class="!$props.height ? 'space-bar' : ''"
+    :style="{
+      'padding-top': !$props.height ? '' : $props.height,
+    }"
+  ></div>
 </template>
 
 <style lang="scss" scoped>
 .space-bar {
   background-color: #fff;
-  height: var(--statusBarHeight);
+  padding-top: var(--statusBarHeight);
 }
 </style>

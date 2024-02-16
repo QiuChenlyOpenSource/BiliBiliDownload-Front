@@ -10,16 +10,16 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/router/child/AppMain.vue"),
     children: [
       {
-        path: "find-music",
-        component: () => import("@/router/child/FindMusic.vue"),
-      },
-      {
         path: "login",
         component: () => import("@/router/child/Login.vue"),
       },
       {
         path: "user",
         component: () => import("@/router/child/User.vue"),
+      },
+      {
+        path: "explore",
+        component: () => import("@/router/child/ExploreVideo.vue"),
       },
     ],
   },

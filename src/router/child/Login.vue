@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { useDark, useToggle } from "@vueuse/core";
 import { useRouter } from "vue-router";
 import { Bili } from "../../utils/Bili";
@@ -23,6 +23,10 @@ const message = ref("");
 var tag: NodeJS.Timeout;
 
 onMounted(async () => getCodeUrl());
+
+onUnmounted(() => {
+  clearTimeout(tag);
+});
 
 const getCodeUrl = async () => {
   const qr = await Bili.getQrCode();

@@ -34,10 +34,16 @@ onMounted(async () => {
 
 <template>
   <div class="content">
-    <img class="user-cover" :src="userCover" alt="" />
-    <div class="user-name">{{ user?.uname }}</div>
-    <div class="levels">
-      {{ user?.level_info.current_exp }}/{{ user?.level_info.next_exp }}
+    <div class="user-avatar-area">
+      <img class="user-cover" :src="userCover" alt="" />
+      <div class="user-level">
+        <div class="user-name">{{ user?.uname }}</div>
+        <div class="levels">
+          经验: {{ user?.level_info.current_exp }}/{{
+            user?.level_info.next_exp
+          }}
+        </div>
+      </div>
     </div>
     <div class="intro">
       <div>
@@ -105,6 +111,28 @@ onMounted(async () => {
       font-size: 20px;
       font-weight: bold;
       color: black;
+    }
+  }
+  .user-avatar-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 100%;
+  }
+  .user-level {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 10px;
+    .user-name {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .levels {
+      font-size: 13px;
+      color: rgba(0, 0, 0, 0.6);
     }
   }
 }
