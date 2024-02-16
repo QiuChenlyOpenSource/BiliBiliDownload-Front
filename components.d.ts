@@ -7,6 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    About: typeof import('./src/components/About.vue')['default']
+    BiliUser: typeof import('./src/components/BiliUser.vue')['default']
     IFluentQuestion28Filled: typeof import('~icons/fluent/question28-filled')['default']
     IFluentSearch28Filled: typeof import('~icons/fluent/search28-filled')['default']
     IMaterialSymbolsChromeMinimizeRounded: typeof import('~icons/material-symbols/chrome-minimize-rounded')['default']

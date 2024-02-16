@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { invoke } from "@tauri-apps/api/core";
 import { useDark, useToggle } from "@vueuse/core";
 import { useRouter } from "vue-router";
-import { Bili } from "../../utils/Bili";
 
 import SpaceBar from "@/components/SpaceBar.vue";
 import { ElMessage } from "element-plus";
+import BiliUser from "@/components/BiliUser.vue";
+import { Bili } from "@/utils/Bili";
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
@@ -59,8 +59,13 @@ const activeUser = async (DedeUserID = "") => {
     <h1>User页面</h1>
     <div class="user-area">
       <div class="user-item" v-for="item in userLst" :key="item.DedeUserID">
-        <h3>User ID: {{ item.DedeUserID }}</h3>
-        <span>Token: {{ item.SESSDATA }}</span>
+        <BiliUser
+          :SESSDATA="item.SESSDATA"
+          :bili_jct="item.bili_jct"
+          :DedeUserID="item.DedeUserID"
+          :DedeUserID__ckMd5="item.DedeUserID__ckMd5"
+          :sid="item.sid"
+        />
         <div class="active" @click="activeUser(item.DedeUserID)">使用</div>
       </div>
     </div>

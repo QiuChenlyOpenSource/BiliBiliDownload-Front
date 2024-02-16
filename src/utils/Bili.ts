@@ -1,3 +1,4 @@
+import { FullUserInfo } from "@/type/FullUserInfo";
 import {
   UserFavoriteCollect,
   UserFavoriteList,
@@ -127,6 +128,24 @@ export class BilibiliApi {
       msg: string;
       data: UserFavoriteCollect;
     }>(`/api/v1/bili/login/user/favorite/collected/${uid}`);
+  }
+
+  // /login/user/spec/{uid} 根据uid获取用户信息
+  async getBiliUserSpec(uid: string) {
+    return await this.http.req<{
+      code: number;
+      msg: string;
+      data: FullUserInfo;
+    }>(`/api/v1/bili/login/user/spec/${uid}`);
+  }
+
+  // /login/user/cover?url=xxx&userId=xxx 加载用户对应可访问的图片
+  async getBiliUserCover(url: string, userId?: string) {
+    return await this.http.req<{
+      code: number;
+      msg: string;
+      data: string;
+    }>(`/api/v1/bili/login/user/cover/getUrl?url=${url}&userId=${userId}`);
   }
 }
 
